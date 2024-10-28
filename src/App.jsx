@@ -4,8 +4,9 @@ import './App.css';
 import { Routes,Route } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from './assets/icon.png';
-import Hospitals from './Components/HospitalData';
 import HospitalData from './Components/HospitalData';
+import HospitalDetails from './Components/HospitalDetails';
+
 function App() {  
   const navigate = useNavigate();
   return (
@@ -24,6 +25,7 @@ function App() {
       </Navbar>
       <Routes>
         <Route path='/' element={<HospitalData />} />
+        <Route path="/:name/details" element={<HospitalDetails />} />
       </Routes>
     </div>
   )

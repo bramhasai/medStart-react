@@ -1,0 +1,61 @@
+.hospital_details_row{
+    display: flex;
+    gap: 4rem;
+    padding: 1rem 2rem;
+    height: 82vh;
+}
+
+.hospital_details_row .col{
+    border: 1px solid black;
+    padding: 0.7rem 1.5rem;
+    width: 50%;
+    border-radius:12px ;
+}
+
+.directions_timeline{
+    margin: 0rem !important;
+    padding: 0rem;
+}
+
+.details div, .details h2, .heading_directions{
+    border-bottom: 2px solid gray;
+    padding: 1.1rem 0rem;
+    margin-top: 0rem;
+}
+.heading_directions{
+    padding: 0.8rem 0rem;
+}
+
+.details p{
+    line-height: 1.3rem;
+}
+.hospital_details_row .col .directions{
+    height: 85%;
+    overflow: auto;
+}
+
+button{
+    background-color: #0d6efd;
+    border: none;
+    padding: 0.7rem;
+    color: white;
+    outline: none;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: #0b5ed7;
+}
+
+.css-1ms7hib-MuiTimelineItem-root::before {
+    content: none !important;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 0 !important;
+    padding: 0 !important;
+}
+
+
+

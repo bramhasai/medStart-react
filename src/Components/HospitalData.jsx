@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Button, Card } from "react-bootstrap";
-import '../CSS/HospitalData.css'
+import '../CSS/HospitalData.css';
+import { useNavigate } from "react-router-dom";
+
+
 export default function HospitalData(){
     const [hospitalData,setHospitalData]=useState([]);
     const [latlong,setLatLong]=useState({});
+    const navigate=useNavigate();
     useEffect(()=>{
         if('geolocation' in navigator){
             navigator.geolocation.getCurrentPosition((position)=>{
@@ -22,7 +26,9 @@ export default function HospitalData(){
             })
         } 
     },[latlong])
-    console.log(hospitalData);
+    
+    
+
     return(
         <div className="hospital_cards">
             {hospitalData
@@ -32,7 +38,7 @@ export default function HospitalData(){
                     const phone = contact?.phone;
                     const website = hospital.properties.website;
                 return(
-                    <div key={index} className="div_card">
+                    <div key={index} className="div_card" onClick={()=>navigate(`/${name}/details`, {state:{hospital:hospital,latlong:latlong}})}>
                         <Card className="hospital_card" >
                             <Card.Body className="card_body">
                                 <Card.Title><h2>{name || "Unknown Hospital"}</h2></Card.Title>
@@ -45,10 +51,12 @@ export default function HospitalData(){
                                 }
                                 {website && (
                                         <Card.Link className="hospital_website" href={website} target="_blank">
-                                            {website}
+                                            <Card.Text style={{margin:"0.2rem 0rem"}}>
+                                                {website}
+                                            </Card.Text>
                                         </Card.Link>
                                 )}
-                                <Button>Get Route</Button>
+                                {/* <Button variant="primary" onClick={()=>handleGetDirections(hospital.properties.lat,hospital.properties.lon)}>Get Directions</Button> */}
                             </Card.Body>
                         </Card>
                     </div>
